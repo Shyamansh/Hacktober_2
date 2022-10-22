@@ -3,49 +3,28 @@
 
 int main()
 {
-    double h,c,t;                               //hardness,carbon content,tensile strength respectively
-    printf("enter hardness\n");
-    scanf("%lf",&h);
-    printf("enter carbon content\n");
-    scanf("%lf",&c);
-    printf("enter tensile strength\n");
-    scanf("%lf",&t);
-    if((h>50)&&(c<0.7)&&(t>5600))               // Hardness must be greater than 50 ii. Carbon content must be less than 0.7 iii. Tensile strength must be greater than 5600
+    int d;              //d= days a person is late in returning the book
+    printf("enter number of days person is late\n");
+    scanf("%i",&d);
+    if(d<=0)
     {
-        printf("\n grade given to the steel is 10");
+        printf("you are not late in returning the book no fine");
     }
-
-    else if((h>50)&&(c<0.7)&&(t<5600))          // test for grade 9
+    else if(0<d&&5>=d)                                              //the first 5 days
     {
-        printf("\n grade given to the steel is 9");
+        printf("your fine is Rs. 0.50");
     }
-
-     else if((h<50)&&(c<0.7)&&(t>5600))         // test for grade 8
+    else if(6<=d&&10>=d)                                            //for 6-10
     {
-        printf("\n grade given to the steel is 8");
+        printf("your fine is Rs. 1.00");
     }
-
-     else if((h>50)&&(c>0.7)&&(t>5600))         // test for grade 7
+    else if(10<d&&30>=d)                                            //10 days to 30 days
     {
-        printf("\n grade given to the steel is 7");
+        printf("your fine is Rs. 5.00");
     }
-
-     else if((h>50)&&(c>0.7)&&(t<5600))         // test for grade 6
+    else                                                            //after 30 days
     {
-        printf("\n grade given to the steel is 6");
+        printf("your membership will be cancelled");
     }
-
-     else if((h<50)&&(c<0.7)&&(t<5600))         // test for grade 6
-    {
-        printf("\n grade given to the steel is 6");
-    }
-
-     else if((h<50)&&(c>0.7)&&(t>5600))         // test for grade 6
-    {
-        printf("\n grade given to the steel is 6");
-     }
-    else                                        // test for grade 5
-    {
-        printf("\n grade given to the steel is 5");         //NOTE:- 5 is the lowest grade available in rating of steel
-    }
+        return 0;
 }
