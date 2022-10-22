@@ -1,77 +1,22 @@
-/*#include <stdio.h>
-#include <stdlib.h>
-void average_of_elements(double a[], int);
-void average_of_elements(double a[] , int size)
-{
-    int l_v;
-    double average;
-    for(l_v=0 ; l_v<size ; l_v++)
-    {
-        average=(average + a[l_v]);     //finding the sum of all the entered elements under array and it is divided by its size after for loop
-    }
-    average=(average/size);         //dividing by size to find the average
-    //Note:- here implicit typecasting is done on size by compiler
-    printf("Average = %lg",average);
-}
-
-int main()
-{
-    int size,l_v;                       //l_v=loop variable
-    scanf("%i",&size);
-
-    if(size<1 || size>100)              //size constraint
-    {
-        printf("Error! number should in range of (1 to 100).");
-    }
-
-    else
-    {
-        double a[size];
-
-        for(l_v=0 ; l_v<size ; l_v++)
-        {
-            scanf("%lf",&a[l_v]);           //scanning the value with array
-        }
-        average_of_elements(a , size);
-    }
-    return 0;
-}*/
 #include <stdio.h>
 #include <stdlib.h>
-void average_of_elements(void);
-void average_of_elements(void)
-{
-    int size,l_v;                       //l_v=loop variable
-    scanf("%i",&size);
-
-    if(size<1 || size>100)              //size constraint
-    {
-        printf("Error! number should in range of (1 to 100).");
-    }
-
-    else
-    {
-        double a[size],average=0;
-
-        for(l_v=0 ; l_v<size ; l_v++)
-        {
-            scanf("%lf",&a[l_v]);           //scanning the value with array
-        }
-
-        for(l_v=0 ; l_v<size ; l_v++)
-        {
-            average=(average + a[l_v]);     //finding the sum of all the entered elements under array and it is divided by its size after for loop
-        }
-
-        average=(average/size);         //dividing by size to find the average
-        //Note:- here implicit typecasting is done on size by compiler
-        printf("Average = %.2lf",average);
-
-    }
-}
+#include <string.h>
+#include <math.h>
 
 int main()
 {
-    average_of_elements();                  //calling the void function
-    return 0;
+    double x1,y1,x2,y2,x3,y3,slope1,slope2;
+    scanf("%lf,%lf",&x1,&y1);                                 //scanning of point x1,y1
+    scanf("%lf,%lf",&x2,&y2);                                 //scanning of point x2,y2
+    scanf("%lf,%lf",&x3,&y3);                                 //scanning of point x3,y3
+    slope1=(y2-y1)/(x2-x1);
+    slope2=(y3-y1)/(x3-x1);
+    if(slope1==slope2)                                      //checking weather the slope is equal or not
+    {
+        printf("All 3 points lie on the same line");        //print if on the same line
+    }
+    else
+    {
+        printf("All 3 points do not lie on the same line"); //print if not on the same line
+    }
 }
