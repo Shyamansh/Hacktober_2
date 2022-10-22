@@ -1,30 +1,77 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
+void average_of_elements(double a[], int);
+void average_of_elements(double a[] , int size)
+{
+    int l_v;
+    double average;
+    for(l_v=0 ; l_v<size ; l_v++)
+    {
+        average=(average + a[l_v]);     //finding the sum of all the entered elements under array and it is divided by its size after for loop
+    }
+    average=(average/size);         //dividing by size to find the average
+    //Note:- here implicit typecasting is done on size by compiler
+    printf("Average = %lg",average);
+}
 
 int main()
 {
-    int d;              //d= days a person is late in returning the book
-    printf("enter number of days person is late\n");
-    scanf("%i",&d);
-    if(d<=0)
+    int size,l_v;                       //l_v=loop variable
+    scanf("%i",&size);
+
+    if(size<1 || size>100)              //size constraint
     {
-        printf("you are not late in returning the book no fine");
+        printf("Error! number should in range of (1 to 100).");
     }
-    else if(0<d&&5>=d)                                              //the first 5 days
+
+    else
     {
-        printf("your fine is Rs. 0.50");
+        double a[size];
+
+        for(l_v=0 ; l_v<size ; l_v++)
+        {
+            scanf("%lf",&a[l_v]);           //scanning the value with array
+        }
+        average_of_elements(a , size);
     }
-    else if(6<=d&&10>=d)                                            //for 6-10
+    return 0;
+}*/
+#include <stdio.h>
+#include <stdlib.h>
+void average_of_elements(void);
+void average_of_elements(void)
+{
+    int size,l_v;                       //l_v=loop variable
+    scanf("%i",&size);
+
+    if(size<1 || size>100)              //size constraint
     {
-        printf("your fine is Rs. 1.00");
+        printf("Error! number should in range of (1 to 100).");
     }
-    else if(10<d&&30>=d)                                            //10 days to 30 days
+
+    else
     {
-        printf("your fine is Rs. 5.00");
+        double a[size],average=0;
+
+        for(l_v=0 ; l_v<size ; l_v++)
+        {
+            scanf("%lf",&a[l_v]);           //scanning the value with array
+        }
+
+        for(l_v=0 ; l_v<size ; l_v++)
+        {
+            average=(average + a[l_v]);     //finding the sum of all the entered elements under array and it is divided by its size after for loop
+        }
+
+        average=(average/size);         //dividing by size to find the average
+        //Note:- here implicit typecasting is done on size by compiler
+        printf("Average = %.2lf",average);
+
     }
-    else                                                            //after 30 days
-    {
-        printf("your membership will be cancelled");
-    }
-        return 0;
+}
+
+int main()
+{
+    average_of_elements();                  //calling the void function
+    return 0;
 }
